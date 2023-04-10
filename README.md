@@ -1,2 +1,3 @@
-# red-canary-mac-monitor
+# Red Canary Mac Monitor
 
+Red Canary Mac Monitor is an advanced, stand-alone system monitoring tool tailor-made for macOS security research. Beginning with Endpoint Security (ES), it collects and enriches system events, displaying them graphically, with an expansive feature set designed to reduce noise. The telemetry collected includes process, interprocess, file, file metadata, file system, code signing, and more. Red Canary Mac Monitor includes several core enhancements, such as a graphical event viewer full of deep-linked events, event correlation, dynamic event subscriptions, path muting, artifact filtering, telemetry export, and rich iconography. This core feature set makes it an ideal analysis companion for validating suspicions or conducting macOS behavioral malware analysis.
