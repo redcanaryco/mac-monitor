@@ -5,7 +5,7 @@ Red Canary Mac Monitor is an advanced, stand-alone system monitoring tool tailor
 ## How to use this repository
 Here we'll be hosting:
 * The distribution package for easy install. See the `/Distribution` directory. Each major build corresponds to a code name. The first of these builds is `roadrunner`.
-* Relase notes `/Release notes`
+* Release notes `/Release notes`
 * and telemetry reports (i.e. all the artifacts that can be collected by the Securty Extension).
 
 Additionally, you can submit feature requests and bug reports here as well. When creating a new Issue you'll be able to use one of the two provided templates.
