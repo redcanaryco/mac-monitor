@@ -1,0 +1,2 @@
+# red-canary-mac-monitor
+
