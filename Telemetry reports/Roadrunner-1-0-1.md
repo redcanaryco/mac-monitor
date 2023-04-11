@@ -1,4 +1,9 @@
-# RedRoc (1.2) Telemetry Summary
+# Red Canary Mac Monitor Telemetry Summary
+## Distribution details
+- Build name: `Roadrunner`
+- App version: 1.0.1
+
+## Overview
 The following is an in-depth look behind the "Red Canary Security Extension" telemetry curtain. While this information is readily viewable to users at any time by exporting telemetry or selecting the "JSON" tab in any "Event Facts" window these report(s) will serve as a "snapshot" of telemetry capabilities over time.
 - Total Endpoint Security (ES) events collected: 32
 - Covering the following telemetry classes (abridged)
@@ -14,7 +19,7 @@ The following is an in-depth look behind the "Red Canary Security Extension" tel
 
 ## Telemetry record structure
 Each event is delivered in a record which can be modeled in JSON in the following way: 
-```json
+```
 {
     // Initiating process metadata (responsible for the target event)
     {
@@ -54,8 +59,7 @@ Each event has a process which was responsible for it. In terms of process execu
 }
 ```
 
-
-### Endpoint Security event listing
+## Endpoint Security event listing
 The following ES events are supported by the Red Canary Security Extension. Users can utilize the dynamic event subscriptions feature to subscribe to any supported event.
 - `ES_EVENT_TYPE_NOTIFY_EXEC`
 - `ES_EVENT_TYPE_NOTIFY_FORK`
@@ -91,43 +95,43 @@ The following ES events are supported by the Red Canary Security Extension. User
 - `ES_EVENT_TYPE_NOTIFY_PROC_CHECK`
 
 
-
 ## Initiating process metadata
 Each component of our initiating process structure is listed below along with its type. Types which are suffixed with a question mark are optional. This means that any given telemetry object can have any given event we have modeled.
-
-- `audit_token: String?`
-- `es_event_type: String?`
-- `unique_id: String?`
-- `parent_unique_id: String?`
+- `audit_token: String`
+- `es_event_type: String`
 - `initiating_pid: Int32`
-- `initiating_process_name: String?`
-- `initiating_process_signing_id: String?`
-- `initiating_process_path: String?`
+- `initiating_process_name: String`
+- `initiating_process_signing_id: String`
+- `initiating_process_path: String`
 - `initiating_ruid: Int64`
 - `initiating_euid: Int64`
-- `initiating_ruid_human: String?`
-- `initiating_euid_human: String?`
-- `mach_time: Int64`
-- `message_darwin_time: Date?`
-- `initiating_process_cdhash: String?`
-- `parent_audit_token: String?`
+- `initiating_ruid_human: String`
+- `initiating_euid_human: String`
+- `initiating_process_cdhash: String`
+- `parent_audit_token: String`
 - `path_is_truncated: Bool`
-- `responsible_audit_token: String?`
-- `sub_type: String?`
-- `macOS: String?`
-- `sensor_id: String?`
-- `activity_at_ts: String?`
+- `responsible_audit_token: String`
+- `macOS: String`
+- `sensor_id: String`
+- `activity_at_ts: String`
 - `initiating_process_file_quarantine_type: Int16`
     - We attempt to read the app’s bundled property list for this information
-    - `0`: The process is not File Quarantine-aware
-    - `1`: The process has opted-into File Quarantine
-    - `2`: The process has been forced into File Quarantine
+      - `0`: The process is not File Quarantine-aware
+      - `1`: The process has opted-into File Quarantine
+      - `2`: The process has been forced into File Quarantine
 - `initiating_process_group_id: Int32`
 - `initiating_is_platform_binary: Bool`
 - `btm_launch_item_add_event: RCESLaunchItemAddEvent?`
 - `delete_xattr_event: RCESXattrEvent?`
 - `set_xattr_event: RCESXattrSetEvent?`
 - `exec_event: RCESProcessExecEvent?`
+- `code_signature_invalidated_event: RCESCodeSignatureInvalidatedEvent?`
+- `process_socket_event: RCESProcessSocketEvent?`
+- `process_trace_event: RCESProcessTraceEvent?`
+- `get_task_event: RCESGetTaskEvent?`
+- `process_check_event: RCESProcessCheckEvent?`
+- `process_signal_event: RCESProcessSignalEvent?`
+- `remote_thread_create_event: RCESRemoteThreadCreateEvent?`
 - `exit_event: RCESProcessExitEvent?`
 - `file_event: RCESFileEvent?`
 - `fork_event: RCESProcessForkEvent?`
@@ -148,17 +152,10 @@ Each component of our initiating process structure is listed below along with it
 - `file_write_event: RCESFileWriteEvent?`
 - `link_event: RCESLinkEvent?`
 - `file_close_event: RCESFileCloseEvent?`
-- `process_signal_event: RCESProcessSignalEvent?`
-- `remote_thread_create_event: RCESRemoteThreadCreateEvent?`
 - `iokit_open_event: RCESIOKitOpenEvent?`
-- `code_signature_invalidated_event: RCESCodeSignatureInvalidatedEvent?`
-- `process_socket_event: RCESProcessSocketEvent?`
-- `process_trace_event: RCESProcessTraceEvent?`
-- `get_task_event: RCESGetTaskEvent?`
-- `process_check_event: RCESProcessCheckEvent?`
 
 
-## Process execute target event metadata (`exec_event`)
+## Process execute target event metadata (`exec_event`): `ES_EVENT_TYPE_NOTIFY_EXEC`
 - `allow_jit: Bool`
 - `audit_token: String`
 - `command_line: String`
@@ -184,14 +181,15 @@ Each component of our initiating process structure is listed below along with it
 - `certificate_chain: String?`
 - `env_variables: String`
 - `file_quarantine_type: Int16`
-- We attempt to read the app’s bundled property list for this information
+  - We attempt to read the app’s bundled property list for this information
     - `0`: The process is not File Quarantine-aware
     - `1`: The process has opted-into File Quarantine
     - `2`: The process has been forced into File Quarantine
 - `cs_type: String`
 - `group_id: Int32`
 
-## Process fork target event metadata (`fork_event`)
+
+## Process fork target event metadata (`fork_event`): `ES_EVENT_TYPE_NOTIFY_FORK`
 - `audit_token: String`
 - `pid: Int32`
 - `ruid: Int64`
@@ -208,26 +206,89 @@ Each component of our initiating process structure is listed below along with it
 - `group_id: Int32`
 - `is_platform_binary: Bool`
 
-## Process exit target event metadata (`exit_event`)
+
+## Process code signature invalidated target event metadata (`code_signature_invalidated_event`): `ES_EVENT_TYPE_NOTIFY_CS_INVALIDATED`
+- Note: This target event specifies that the initiating process's code signature was invalidated in-memory.
+
+
+## Process socket target event metadata (`process_socket_event`): `ES_EVENT_TYPE_NOTIFY_PROC_SUSPEND_RESUME`
+- `target_process_name: String`
+- `target_process_path: String`
+- `target_process_signing_id: String`
+- `target_process_audit_token: String`
+- `type: String`
+
+
+## Process trace target event metadata (`process_trace_event`): `ES_EVENT_TYPE_NOTIFY_TRACE`
+- `process_name: String`
+- `process_path: String`
+- `process_signing_id: String`
+- `process_audit_token: String`
+
+
+## Process task port target event (`get_task_event`): `ES_EVENT_TYPE_NOTIFY_GET_TASK`
+- `process_path: String`
+- `process_name: String`
+- `process_audit_token: String`
+- `process_signing_id: String`
+- `type: String`
+
+
+## Process check target event metadata (`process_check_event`): `ES_EVENT_TYPE_NOTIFY_PROC_CHECK`
+- `process_name: String`
+- `process_signing_id: String`
+- `process_path: String`
+- `process_audit_token: String`
+- `flavor: Int32`
+- `type: String`
+
+
+## Process signal target event metadata (`process_signal_event`): `ES_EVENT_TYPE_NOTIFY_SIGNAL`
+- `signal_id: Int32`
+- `process_name: String`
+- `process_path: String`
+- `audit_token: String`
+- `signing_id: String`
+- `signal_name: String`
+
+
+## Process remote thread created target event metadata (`remote_thread_create_event`): `ES_EVENT_TYPE_NOTIFY_REMOTE_THREAD_CREATE`
+- `target_process_name: String`
+- `target_process_path: String`
+- `target_process_signing_id: String`
+- `target_process_audit_token: String`
+- `thread_state: String`
+
+
+## Process exit target event metadata (`exit_event`): `ES_EVENT_TYPE_NOTIFY_EXIT`
 - `exit_code: Int32`
 
-## File creation target event metadata (`file_event`)
+
+## File creation target event metadata (`file_event`): `ES_EVENT_TYPE_NOTIFY_CREATE`
 - `destination_path: String`
 - `file_name: String`
-- `is_quarantined: Bool`
-    * We attempt to determine if the file being created is quarantined. If a file is deleted / delete `xattr` event occurs too too quickly we default this to true.
+- `is_quarantined: Int16`
+    - We attempt to determine if the file being created is quarantined. If a file is deleted / delete `xattr` event occurs too too quickly the file cannot be found.
+      - `0`: The file is not quarantined
+      - `1`: The file is quarantined
+      - `2`: The file could not be found
 
-## File rename target event metadata (`file_rename_event`)
+
+## File rename target event metadata (`file_rename_event`): `ES_EVENT_TYPE_NOTIFY_RENAME`
 - `file_name: String`
 - `destination_path: String`
 - `source_path: String`
 - `archive_files_not_quarantined: String?`
-    * If this file rename event is moving an inflated archive we perform a deep search of the destination file path to determine if any files are not quarantined.
+    - If this file rename event is moving an inflated archive we perform a deep search of the destination file path to determine if any files are not quarantined.
 - `type: String`
-- `is_quarantined: Bool`
-    * Is the file / directory at destination_path quarantined?
+- `is_quarantined: Int16`
+    - We attempt to determine if the file being created is quarantined. If a file is deleted / delete `xattr` event occurs too too quickly the file cannot be found.
+      - `0`: The file is not quarantined
+      - `1`: The file is quarantined
+      - `2`: The file could not be found
 
-## File system mount target event metadata (`mount_event`)
+
+## File system mount target event metadata (`mount_event`): `ES_EVENT_TYPE_NOTIFY_MOUNT`
 - `total_files: Int64`
 - `mount_flags: Int64`
 - `type_name: String`
@@ -237,17 +298,26 @@ Each component of our initiating process structure is listed below along with it
 - `fs_id: String`
 - `owner_uid_human: String`
 
-## File duplicate target event metadata (`fd_duplicate_event`)
+
+## File duplicate target event metadata (`fd_duplicate_event`): `ES_EVENT_TYPE_NOTIFY_DUP`
 - `file_path: String`
 - `file_name: String`
 
-## Extended attribute (xattr) delete target event metadata (`delete_xattr_event`)
+
+## Extended attribute (xattr) delete target event metadata (`delete_xattr_event`): `ES_EVENT_TYPE_NOTIFY_DELETEEXTATTR`
 - `file_name: String`
 - `file_path: String`
 - `operation: String`
 - `xattr: String`
 
-## Background Task Management (BTM) add target event metadata (`btm_launch_item_add_event`)
+
+## Extended attribute (xattr) set target event metadata (`set_xattr_event`): `ES_EVENT_TYPE_AUTH_SETEXTATTR`
+- `file_name: String`
+- `file_path: String`
+- `operation: String`
+- `xattr: String`
+
+## Background Task Management (BTM) add target event metadata (`btm_launch_item_add_event`): `ES_EVENT_TYPE_NOTIFY_BTM_LAUNCH_ITEM_ADD`
 - `file_name: String`
 - `file_path: String`
 - `uid: Int64`
@@ -264,7 +334,8 @@ Each component of our initiating process structure is listed below along with it
 - `instigating_process_signing_id: String`
 - `instigating_process_team_id: String?`
 
-## Background Task Management (BTM) remove target event metadata (`btm_launch_item_remove_event`)
+
+## Background Task Management (BTM) remove target event metadata (`btm_launch_item_remove_event`): `ES_EVENT_TYPE_NOTIFY_BTM_LAUNCH_ITEM_REMOVE`
 - `app_process_path: String?`
 - `app_process_signing_id: String?`
 - `app_process_team_id: String?`
@@ -279,43 +350,51 @@ Each component of our initiating process structure is listed below along with it
 - `uid_human: String?`
 - `is_managed: Bool`
 
-## Memory map target event metadata (`mmap_event`)
+
+## Memory map target event metadata (`mmap_event`): `ES_EVENT_TYPE_NOTIFY_MMAP`
 - `path: String`
 
-## LoginWindow login target event metadata (`lw_login_event`)
+
+## LoginWindow login target event metadata (`lw_login_event`): `ES_EVENT_TYPE_NOTIFY_LW_SESSION_LOGIN`
 - `username: String`
 - `graphical_session_id: Int32`
 
-## LoginWindow unlock target event metadata (`lw_unlock_event`)
+
+## LoginWindow unlock target event metadata (`lw_unlock_event`): `ES_EVENT_TYPE_NOTIFY_LW_SESSION_UNLOCK`
 - `username: String`
 - `graphical_session_id: Int32`
 
-## Login login target event metadata (`login_login_event`)
+
+## Login login target event metadata (`login_login_event`): `ES_EVENT_TYPE_NOTIFY_LOGIN_LOGIN`
 - `success: Bool`
 - `failure_message: String`
 - `username: String`
 - `uid: Int64`
 - `uid_human: String`
 
-## OpenSSH login target event metadata (`openssh_login_event`)
+
+## OpenSSH login target event metadata (`openssh_login_event`): `ES_EVENT_TYPE_NOTIFY_OPENSSH_LOGIN`
 - `result_type: String?`
 - `source_address: String?`
 - `source_address_type: String?`
 - `success: Bool`
 - `user_name: String?`
 
-## OpenSSH logout target event metadata (`openssh_logout_event`)
+
+## OpenSSH logout target event metadata (`openssh_logout_event`): `ES_EVENT_TYPE_NOTIFY_OPENSSH_LOGOUT`
 - `source_address_type: String`
 - `source_address: String`
 - `username: String`
 
-## XProtect Malware detected target event metadata (`xprotect_detect_event`)
+
+## XProtect Malware detected target event metadata (`xprotect_detect_event`): `ES_EVENT_TYPE_NOTIFY_XP_MALWARE_DETECTED`
 - `signature_version: String`
 - `malware_identifier: String`
 - `incident_identifier: String`
 - `detected_path: String`
 
-## XProtect Malware remediated target event metadata (`xprotect_remediate_event`)
+
+## XProtect Malware remediated target event metadata (`xprotect_remediate_event`): `ES_EVENT_TYPE_NOTIFY_XP_MALWARE_REMEDIATED`
 - `signature_version: String`
 - `malware_identifier: String`
 - `incident_identifier: String`
@@ -324,4 +403,37 @@ Each component of our initiating process structure is listed below along with it
 - `result_description: String`
 - `remediated_path: String`
 - `remediated_process_audit_token: String`
+
+
+## File delete target event metadata (`file_delete_event`): `ES_EVENT_TYPE_NOTIFY_UNLINK`
+- `file_path: String`
+- `file_name: String`
+- `parent_directory: String`
+
+
+## File open target event metadata (`file_open_event`): `ES_EVENT_TYPE_NOTIFY_OPEN`
+- `file_path: String`
+- `file_name: String`
+
+
+## File write target event metadata (`file_write_event`): `ES_EVENT_TYPE_NOTIFY_WRITE`
+- `file_path: String`
+- `file_name: String`
+
+
+## File link target event metadata (`link_event`): `ES_EVENT_TYPE_NOTIFY_LINK`
+- `source_file_path: String`
+- `source_file_name: String`
+- `target_file_path: String`
+- `target_file_name: String`
+
+
+## File close target event metadata (`file_close_event`): `ES_EVENT_TYPE_NOTIFY_CLOSE`
+- `file_path: String`
+- `file_name: String`
+
+
+## IOKit open target event metadata (`iokit_open_event`): `ES_EVENT_TYPE_NOTIFY_IOKIT_OPEN`
+- `user_client_class: String`
+- `user_client_type: Int32`
 
