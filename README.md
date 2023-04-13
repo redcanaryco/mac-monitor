@@ -15,11 +15,12 @@ Red Canary Mac Monitor is an **advanced, stand-alone system monitoring tool tail
 * Next, System Settings will automatically open to `Full Disk Access` -- you'll need to flip the switch to enable this for the `Red Canary Security Extension`. Full Disk Access is a [*requirement* of Endpoint Security](https://developer.apple.com/documentation/endpointsecurity/3259700-es_new_client#:~:text=The%20user%20does%20this%20in%20the%20Security%20and%20Privacy%20pane%20of%20System%20Preferences%2C%20by%20adding%20the%20app%20to%20Full%20Disk%20Access.).
 * 🏎️ Click the "Start" button in the app and you'll be prompted to reopen the app. Done!
 
+![Install process](https://github.com/redcanaryco/mac-monitor/blob/First-Release-Roadrunner-Build/Resources/Install.png?raw=true)
+
 ### Install footprint
 - Event monitor app which establishes an XPC connection to the Security Extension: `/Applications/Red Canary Mac Monitor.app` w/signing identifier of `com.redcanary.agent`.
 - Security Extension: `/Library/SystemExtensions/../com.redcanary.agent.securityextension.systemextension` w/signing identifier of `com.redcanary.agent.securityextension.systemextension`.
 
-![Install process](https://github.com/redcanaryco/mac-monitor/blob/First-Release-Roadrunner-Build/Resources/Install.png?raw=true)
 
 ## Uninstall
 * **From the Finder** delete the app and authenticate to remove the System Extension. You can't do this from the Dock. It's that easy!
