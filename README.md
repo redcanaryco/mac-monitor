@@ -8,7 +8,7 @@ Red Canary Mac Monitor is an advanced, stand-alone system monitoring tool tailor
 * Next, System Settings will automaticlly open to `Full Disk Access` -- you'll need to flip the switch to enable this for the `Red Canary Security Extension`. Full Disk Access is a *requirement* of Endpoint Secuirty.
 * 🏎️ Click the "Start" button in the app and you'll be propted to reopen the app. Done!
 
-![Install process](https://github.com/redcanaryco/mac-monitor/blob/main/Resources/Install.png?raw=true)
+![Install process](https://github.com/redcanaryco/mac-monitor/blob/First-Release-Roadrunner-Build/Resources/Install.png?raw=true)
 
 
 ## How are updates handled?
