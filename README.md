@@ -1,5 +1,5 @@
 ## Welcome to Red Canary Mac Monitor
-![Feature overview](https://github.com/redcanaryco/mac-monitor/blob/First-Release-Roadrunner-Build/Resources/FeatureSummary.png?raw=true)
+![Feature overview](https://github.com/redcanaryco/mac-monitor/blob/main/Resources/FeatureSummary.png?raw=true)
 
 Red Canary Mac Monitor is an **advanced, stand-alone system monitoring tool tailor-made for macOS security research, malware triage, and system troubleshooting**. Harnessing Apple Endpoint Security (ES), it collects and enriches system events, displaying them graphically, with an expansive feature set designed to surface only the events that are relevant to you. The telemetry collected includes process, interprocess, and file events in addition to rich metadata, allowing users to contextualize events and tell a story with ease. With an intuitive interface and a rich set of analysis features, Red Canary Mac Monitor was designed for a wide range of skill levels and backgrounds to detect macOS threats that would otherwise go unnoticed. As part of Red Canary’s commitment to the research community, the Mac Monitor distribution package is available to download for free.
 
@@ -15,7 +15,7 @@ Red Canary Mac Monitor is an **advanced, stand-alone system monitoring tool tail
 * Next, System Settings will automatically open to `Full Disk Access` -- you'll need to flip the switch to enable this for the `Red Canary Security Extension`. Full Disk Access is a [*requirement* of Endpoint Security](https://developer.apple.com/documentation/endpointsecurity/3259700-es_new_client#:~:text=The%20user%20does%20this%20in%20the%20Security%20and%20Privacy%20pane%20of%20System%20Preferences%2C%20by%20adding%20the%20app%20to%20Full%20Disk%20Access.).
 * 🏎️ Click the "Start" button in the app and you'll be prompted to reopen the app. Done!
 
-![Install process](https://github.com/redcanaryco/mac-monitor/blob/First-Release-Roadrunner-Build/Resources/Install.png?raw=true)
+![Install process](https://github.com/redcanaryco/mac-monitor/blob/main/Resources/Install.png?raw=true)
 
 ### Install footprint
 - Event monitor app which establishes an XPC connection to the Security Extension: `/Applications/Red Canary Mac Monitor.app` w/signing identifier of `com.redcanary.agent`.
@@ -61,7 +61,7 @@ Each release of Red Canary Mac Monitor has a corresponding build name and versio
 - **Process subtree generation**. When viewing the event facts window for any given event we’ll attempt to generate a process lineage subtree in the left hand sidebar. This tree is intractable – click on any process and you’ll be taken to its event facts. **Similarly, you can right click on any process in the tree to pop out the facts for that event**.
 - **Dynamic event distribution chart**. This is a fun one enabled by the SwiftUI team. The graph shows the distribution of events you're subscribed to, currently in-scope (i.e. not filtered), and have a count of more than nothing. This enables you to *very* quickly identify noisy events. The chart auto-shows/hides itself, but you can bring it back with the: "Mini-chart" button in the toolbar.
 
-![Event distribution chart](https://github.com/redcanaryco/mac-monitor/blob/First-Release-Roadrunner-Build/Resources/DistributionChart.png?raw=true)
+![Event distribution chart](https://github.com/redcanaryco/mac-monitor/blob/main/Resources/DistributionChart.png?raw=true)
 
 
 ## Other features

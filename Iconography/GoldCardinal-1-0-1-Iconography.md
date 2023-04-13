@@ -171,4 +171,4 @@ Please note. In most cases, we've included "help" / "tooltip" text for each symb
 - **Event symbol: "captions.bubble".**
 
 
-![Event iconography](https://github.com/redcanaryco/mac-monitor/blob/First-Release-Roadrunner-Build/Resources/GoldCardinal-1-0-1-event-iconography.png?raw=true)
+![Event iconography](https://github.com/redcanaryco/mac-monitor/blob/main/Resources/GoldCardinal-1-0-1-event-iconography.png?raw=true)
