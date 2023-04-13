@@ -4,7 +4,7 @@
 Red Canary Mac Monitor is an **advanced, stand-alone system monitoring tool tailor-made for macOS security research, malware triage, and system troubleshooting**. Harnessing Apple Endpoint Security (ES), it collects and enriches system events, displaying them graphically, with an expansive feature set designed to surface only the events that are relevant to you. The telemetry collected includes process, interprocess, and file events in addition to rich metadata, allowing users to contextualize events and tell a story with ease. With an intuitive interface and a rich set of analysis features, Red Canary Mac Monitor was designed for a wide range of skill levels and backgrounds to detect macOS threats that would otherwise go unnoticed. As part of Red Canary’s commitment to the research community, the Mac Monitor distribution package is available to download for free.
 
 ## Requirements
-- Processor / SoC: We recommend an `Apple Silicon` machine, but `Intel` works too!
+- Processor: We recommend an `Apple Silicon` machine, but `Intel` works too!
 - System memory: `4GB+` is recommended
 - macOS version: `13.1+` (Ventura)
 

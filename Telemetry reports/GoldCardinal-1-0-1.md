@@ -1,11 +1,11 @@
 # Red Canary Mac Monitor Telemetry Summary
 ## Distribution details
 - Build name: `GoldCardinal`
-- App version: 1.0.1
+- App version: `1.0.1`
 
-## Overview
+# Overview
 The following is an in-depth look behind the "Red Canary Security Extension" telemetry curtain. While this information is readily viewable to users at any time by exporting telemetry or selecting the "JSON" tab in any "Event Facts" window these report(s) will serve as a "snapshot" of telemetry capabilities over time.
-- Total Endpoint Security (ES) events collected: 32
+- Total Endpoint Security (ES) events collected: `32`
 - Covering the following telemetry classes (abridged)
   * Process
   * Interprocess
@@ -59,7 +59,7 @@ Each event has a process which was responsible for it. In terms of process execu
 }
 ```
 
-## Endpoint Security event listing
+# Endpoint Security event listing
 The following ES events are supported by the Red Canary Security Extension. Users can utilize the dynamic event subscriptions feature to subscribe to any supported event.
 - `ES_EVENT_TYPE_NOTIFY_EXEC`
 - `ES_EVENT_TYPE_NOTIFY_FORK`
@@ -95,7 +95,7 @@ The following ES events are supported by the Red Canary Security Extension. User
 - `ES_EVENT_TYPE_NOTIFY_PROC_CHECK`
 
 
-## Initiating process metadata
+# Initiating process metadata
 Each component of our initiating process structure is listed below along with its type. Types which are suffixed with a question mark are optional. This means that any given telemetry object can have any given event we have modeled.
 - `audit_token: String`
 - `es_event_type: String`
@@ -154,7 +154,7 @@ Each component of our initiating process structure is listed below along with it
 - `file_close_event: RCESFileCloseEvent?`
 - `iokit_open_event: RCESIOKitOpenEvent?`
 
-
+# **Process events**
 ## Process execute target event metadata (`exec_event`): `ES_EVENT_TYPE_NOTIFY_EXEC`
 - `allow_jit: Bool`
 - `audit_token: String`
@@ -188,7 +188,6 @@ Each component of our initiating process structure is listed below along with it
 - `cs_type: String`
 - `group_id: Int32`
 
-
 ## Process fork target event metadata (`fork_event`): `ES_EVENT_TYPE_NOTIFY_FORK`
 - `audit_token: String`
 - `pid: Int32`
@@ -206,10 +205,8 @@ Each component of our initiating process structure is listed below along with it
 - `group_id: Int32`
 - `is_platform_binary: Bool`
 
-
 ## Process code signature invalidated target event metadata (`code_signature_invalidated_event`): `ES_EVENT_TYPE_NOTIFY_CS_INVALIDATED`
 - Note: This target event specifies that the initiating process's code signature was invalidated in-memory.
-
 
 ## Process socket target event metadata (`process_socket_event`): `ES_EVENT_TYPE_NOTIFY_PROC_SUSPEND_RESUME`
 - `target_process_name: String`
@@ -218,13 +215,11 @@ Each component of our initiating process structure is listed below along with it
 - `target_process_audit_token: String`
 - `type: String`
 
-
 ## Process trace target event metadata (`process_trace_event`): `ES_EVENT_TYPE_NOTIFY_TRACE`
 - `process_name: String`
 - `process_path: String`
 - `process_signing_id: String`
 - `process_audit_token: String`
-
 
 ## Process task port target event (`get_task_event`): `ES_EVENT_TYPE_NOTIFY_GET_TASK`
 - `process_path: String`
@@ -232,7 +227,6 @@ Each component of our initiating process structure is listed below along with it
 - `process_audit_token: String`
 - `process_signing_id: String`
 - `type: String`
-
 
 ## Process check target event metadata (`process_check_event`): `ES_EVENT_TYPE_NOTIFY_PROC_CHECK`
 - `process_name: String`
@@ -242,7 +236,6 @@ Each component of our initiating process structure is listed below along with it
 - `flavor: Int32`
 - `type: String`
 
-
 ## Process signal target event metadata (`process_signal_event`): `ES_EVENT_TYPE_NOTIFY_SIGNAL`
 - `signal_id: Int32`
 - `process_name: String`
@@ -251,7 +244,6 @@ Each component of our initiating process structure is listed below along with it
 - `signing_id: String`
 - `signal_name: String`
 
-
 ## Process remote thread created target event metadata (`remote_thread_create_event`): `ES_EVENT_TYPE_NOTIFY_REMOTE_THREAD_CREATE`
 - `target_process_name: String`
 - `target_process_path: String`
@@ -259,11 +251,18 @@ Each component of our initiating process structure is listed below along with it
 - `target_process_audit_token: String`
 - `thread_state: String`
 
-
 ## Process exit target event metadata (`exit_event`): `ES_EVENT_TYPE_NOTIFY_EXIT`
 - `exit_code: Int32`
 
 
+
+# **Memory events**
+## Memory map target event metadata (`mmap_event`): `ES_EVENT_TYPE_NOTIFY_MMAP`
+- `path: String`
+
+
+
+# **File events**
 ## File creation target event metadata (`file_event`): `ES_EVENT_TYPE_NOTIFY_CREATE`
 - `destination_path: String`
 - `file_name: String`
@@ -272,7 +271,6 @@ Each component of our initiating process structure is listed below along with it
       - `0`: The file is not quarantined
       - `1`: The file is quarantined
       - `2`: The file could not be found
-
 
 ## File rename target event metadata (`file_rename_event`): `ES_EVENT_TYPE_NOTIFY_RENAME`
 - `file_name: String`
@@ -287,23 +285,36 @@ Each component of our initiating process structure is listed below along with it
       - `1`: The file is quarantined
       - `2`: The file could not be found
 
+## File delete target event metadata (`file_delete_event`): `ES_EVENT_TYPE_NOTIFY_UNLINK`
+- `file_path: String`
+- `file_name: String`
+- `parent_directory: String`
 
-## File system mount target event metadata (`mount_event`): `ES_EVENT_TYPE_NOTIFY_MOUNT`
-- `total_files: Int64`
-- `mount_flags: Int64`
-- `type_name: String`
-- `source_name: String`
-- `mount_directory: String`
-- `owner_uid: Int64`
-- `fs_id: String`
-- `owner_uid_human: String`
+## File open target event metadata (`file_open_event`): `ES_EVENT_TYPE_NOTIFY_OPEN`
+- `file_path: String`
+- `file_name: String`
 
+## File write target event metadata (`file_write_event`): `ES_EVENT_TYPE_NOTIFY_WRITE`
+- `file_path: String`
+- `file_name: String`
+
+## File link target event metadata (`link_event`): `ES_EVENT_TYPE_NOTIFY_LINK`
+- `source_file_path: String`
+- `source_file_name: String`
+- `target_file_path: String`
+- `target_file_name: String`
+
+## File close target event metadata (`file_close_event`): `ES_EVENT_TYPE_NOTIFY_CLOSE`
+- `file_path: String`
+- `file_name: String`
 
 ## File duplicate target event metadata (`fd_duplicate_event`): `ES_EVENT_TYPE_NOTIFY_DUP`
 - `file_path: String`
 - `file_name: String`
 
 
+
+# **File metadata events**
 ## Extended attribute (xattr) delete target event metadata (`delete_xattr_event`): `ES_EVENT_TYPE_NOTIFY_DELETEEXTATTR`
 - `file_name: String`
 - `file_path: String`
@@ -317,6 +328,22 @@ Each component of our initiating process structure is listed below along with it
 - `operation: String`
 - `xattr: String`
 
+
+
+# **File system events**
+## File system mount target event metadata (`mount_event`): `ES_EVENT_TYPE_NOTIFY_MOUNT`
+- `total_files: Int64`
+- `mount_flags: Int64`
+- `type_name: String`
+- `source_name: String`
+- `mount_directory: String`
+- `owner_uid: Int64`
+- `fs_id: String`
+- `owner_uid_human: String`
+
+
+
+# **Background Task events**
 ## Background Task Management (BTM) add target event metadata (`btm_launch_item_add_event`): `ES_EVENT_TYPE_NOTIFY_BTM_LAUNCH_ITEM_ADD`
 - `file_name: String`
 - `file_path: String`
@@ -334,7 +361,6 @@ Each component of our initiating process structure is listed below along with it
 - `instigating_process_signing_id: String`
 - `instigating_process_team_id: String?`
 
-
 ## Background Task Management (BTM) remove target event metadata (`btm_launch_item_remove_event`): `ES_EVENT_TYPE_NOTIFY_BTM_LAUNCH_ITEM_REMOVE`
 - `app_process_path: String?`
 - `app_process_signing_id: String?`
@@ -351,19 +377,15 @@ Each component of our initiating process structure is listed below along with it
 - `is_managed: Bool`
 
 
-## Memory map target event metadata (`mmap_event`): `ES_EVENT_TYPE_NOTIFY_MMAP`
-- `path: String`
 
-
+# **Login events**
 ## LoginWindow login target event metadata (`lw_login_event`): `ES_EVENT_TYPE_NOTIFY_LW_SESSION_LOGIN`
 - `username: String`
 - `graphical_session_id: Int32`
 
-
 ## LoginWindow unlock target event metadata (`lw_unlock_event`): `ES_EVENT_TYPE_NOTIFY_LW_SESSION_UNLOCK`
 - `username: String`
 - `graphical_session_id: Int32`
-
 
 ## Login login target event metadata (`login_login_event`): `ES_EVENT_TYPE_NOTIFY_LOGIN_LOGIN`
 - `success: Bool`
@@ -372,7 +394,6 @@ Each component of our initiating process structure is listed below along with it
 - `uid: Int64`
 - `uid_human: String`
 
-
 ## OpenSSH login target event metadata (`openssh_login_event`): `ES_EVENT_TYPE_NOTIFY_OPENSSH_LOGIN`
 - `result_type: String?`
 - `source_address: String?`
@@ -380,19 +401,19 @@ Each component of our initiating process structure is listed below along with it
 - `success: Bool`
 - `user_name: String?`
 
-
 ## OpenSSH logout target event metadata (`openssh_logout_event`): `ES_EVENT_TYPE_NOTIFY_OPENSSH_LOGOUT`
 - `source_address_type: String`
 - `source_address: String`
 - `username: String`
 
 
+
+# **XProtect events**
 ## XProtect Malware detected target event metadata (`xprotect_detect_event`): `ES_EVENT_TYPE_NOTIFY_XP_MALWARE_DETECTED`
 - `signature_version: String`
 - `malware_identifier: String`
 - `incident_identifier: String`
 - `detected_path: String`
-
 
 ## XProtect Malware remediated target event metadata (`xprotect_remediate_event`): `ES_EVENT_TYPE_NOTIFY_XP_MALWARE_REMEDIATED`
 - `signature_version: String`
@@ -405,35 +426,10 @@ Each component of our initiating process structure is listed below along with it
 - `remediated_process_audit_token: String`
 
 
-## File delete target event metadata (`file_delete_event`): `ES_EVENT_TYPE_NOTIFY_UNLINK`
-- `file_path: String`
-- `file_name: String`
-- `parent_directory: String`
 
-
-## File open target event metadata (`file_open_event`): `ES_EVENT_TYPE_NOTIFY_OPEN`
-- `file_path: String`
-- `file_name: String`
-
-
-## File write target event metadata (`file_write_event`): `ES_EVENT_TYPE_NOTIFY_WRITE`
-- `file_path: String`
-- `file_name: String`
-
-
-## File link target event metadata (`link_event`): `ES_EVENT_TYPE_NOTIFY_LINK`
-- `source_file_path: String`
-- `source_file_name: String`
-- `target_file_path: String`
-- `target_file_name: String`
-
-
-## File close target event metadata (`file_close_event`): `ES_EVENT_TYPE_NOTIFY_CLOSE`
-- `file_path: String`
-- `file_name: String`
-
-
+# **Kernel events**
 ## IOKit open target event metadata (`iokit_open_event`): `ES_EVENT_TYPE_NOTIFY_IOKIT_OPEN`
 - `user_client_class: String`
 - `user_client_type: Int32`
+
 

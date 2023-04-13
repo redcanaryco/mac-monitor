@@ -1,7 +1,7 @@
 # **Event Iconography**
 ## **Distribution details**
 - Build name: `GoldCardinal`
-- App version: 1.0.1
+- App version: `1.0.1`
 
 ## **Overview**
 Utilizing **[SF Symbols](https://developer.apple.com/sf-symbols/)** we've assigned each ES event a symbol and colors which correspond to facts about any given event.
