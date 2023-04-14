@@ -28,17 +28,17 @@ Red Canary Mac Monitor is an **advanced, stand-alone system monitoring tool tail
 
 
 ## How are updates handled?
-* When a new version is available for you to download we'll make a new release.
-* We'll include updated notes and telemetry summaries (if applicable) for each release
+* When a new version is available for you to download we'll make a new [release](https://github.com/redcanaryco/mac-monitor/releases/).
+* We'll include updated notes and telemetry summaries (if applicable) for each release.
 * All you, as the end user, will need to do is download the update and run the installer. We'll take care of the rest 😉.
 
 
 ## How to use this repository
 Here we'll be hosting:
 * The distribution package for easy install. See the [`Releases` section](https://github.com/redcanaryco/mac-monitor/releases/). Each major build corresponds to a code name. The first of these builds is `GoldCardinal`.
-* telemetry reports in `Telemetry reports/` (i.e. all the artifacts that can be collected by the Security Extension).
-* iconography (what the symbols and colors mean) in `Iconography/`
-* and updated mute set summaries in `Mute sets/`
+* Telemetry reports in `Telemetry reports/` (i.e. all the artifacts that can be collected by the Security Extension).
+* Iconography (what the symbols and colors mean) in `Iconography/`
+* Updated mute set summaries in `Mute sets/`
 
 Additionally, you can submit feature requests and bug reports here as well. When creating a new Issue you'll be able to use one of the two provided templates. Both of these options are also accessible from the in-app "Help" menu.
 * [Feature request](https://github.com/redcanaryco/mac-monitor/issues/new?assignees=Brandon7CC&labels=rc-mac-feature-request&template=feature_request.md&title=)
@@ -61,7 +61,7 @@ Each release of Red Canary Mac Monitor has a corresponding build name and versio
 - **Event correlation** is an *exceptionally* important component in any analyst's tool belt. The ability to see which events are "related" to one-another enables you to manipulate the telemetry in a way that makes sense (other than simply dumping to JSON or representing an individual event). We perform event correlation at the process level -- this means that for any given event (which have an initiating and/or target process) we can deeply link events that any given process instigated. 
 - **Process grouping** is another helpful way to represent process telemetry around a given `ES_EVENT_TYPE_NOTIFY_EXEC` or `ES_EVENT_TYPE_NOTIFY_FORK` event. By grouping processes in this way you can easily identify the chain of activity.
 - **Artifact filtering** enabled users to remove (but not destroy) events from view based on: event type, initiating process path, or target process path. This standout feature enables analysts to cut through the noise quickly while still retaining all data.
-  - Destructive filtering is also available in the form of "dropping platform binaries" -- another useful technique to cut through the noise.
+  - Lossy filtering (i.e. events that are dropped from the trace) is also available in the form of "dropping platform binaries" -- another useful technique to cut through the noise.
 
 ![Artifact filtering overview](https://github.com/redcanaryco/mac-monitor/blob/main/Resources/ArtifactFilteringOverview.png?raw=true)
 
