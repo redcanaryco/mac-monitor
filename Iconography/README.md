@@ -4,7 +4,7 @@
 - App version: `1.0.1`
 
 ## **Overview**
-Utilizing **[SF Symbols](https://developer.apple.com/sf-symbols/)** we've assigned each ES event a symbol and colors which correspond to facts about any given event.
+Utilizing **[SF Symbols](https://developer.apple.com/sf-symbols/)** we've assigned each ES event a symbol and colors which correspond to facts about any given event. To follow along, please download `SF Symbols`! *This guide will include pictures in the future*.
 
 ## **Color summary**
 * `Blue`: Login of some kind (e.g. login window unlock)
