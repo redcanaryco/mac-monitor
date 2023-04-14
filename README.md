@@ -37,6 +37,7 @@ Red Canary Mac Monitor is an **advanced, stand-alone system monitoring tool tail
 Here we'll be hosting:
 * The distribution package for easy install. See the [`Releases` section](https://github.com/redcanaryco/mac-monitor/releases/). Each major build corresponds to a code name. The first of these builds is `GoldCardinal`.
 * telemetry reports in `/Telemetry reports` (i.e. all the artifacts that can be collected by the Security Extension).
+* iconography (what the symbols and colors mean) in `/Iconography`
 * and updated mute set summaries in `/Mute sets`
 
 Additionally, you can submit feature requests and bug reports here as well. When creating a new Issue you'll be able to use one of the two provided templates. Both of these options are also accessible from the in-app "Help" menu.
