@@ -61,6 +61,7 @@ Each release of Red Canary Mac Monitor has a corresponding build name and versio
 - **Process grouping** is another helpful way to represent process telemetry around a given `ES_EVENT_TYPE_NOTIFY_EXEC` or `ES_EVENT_TYPE_NOTIFY_FORK` event. By grouping processes in this way you can easily identify the chain of activity.
 - **Artifact filtering** enabled users to remove (but not destroy) events from view based on: event type, initiating process path, or target process path. This standout feature enables analysts to cut through the noise quickly while still retaining all data.
   - Destructive filtering is also available in the form of "dropping platform binaries" -- another useful technique to cut through the noise.
+
 ![Artifact filtering overview](https://github.com/redcanaryco/mac-monitor/blob/main/Resources/ArtifactFilteringOverview.png?raw=true)
 
 - **Telemetry export**. Right now we support pretty JSON and JSONL (one JSON object per-line) for the full or partial system trace (keyboard shortcuts too). You can access these options in the menu bar under "Export Telemetry".
