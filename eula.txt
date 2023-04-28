@@ -1,0 +1,82 @@
+Software License Agreement
+
+This License Agreement (the "License") is provided by Red Canary, Inc. ("Red Canary," "us," and "our") and
+covers your installation and use of the Red Canary Mac Monitor (the "Software") and related documentation
+provided by Red Canary (the "Documentation"). This License does not apply to the use of any other Red Canary
+products, services, or software, which would be covered under a separate agreement between you and Red Canary.
+By clicking "AGREE" you acknowledge that you have read, understood, and agree to be legally bound by this
+License. In this License we refer to "you" ("your") as the individual or company that accepts this License.
+
+1. License
+Subject to, and conditioned on your compliance with all terms and conditions herein, Red Canary grants you a
+limited, non-exclusive, non-transferable, and non-sublicenseable license to install and use the Software and
+Documentation solely for your own internal business purposes, and not for any commercial use or purpose.
+
+2. Restrictions on Use
+You shall not (and shall not permit any authorized user or third party to) make any use or disclosure of the
+Software or Documentation that is not expressly permitted under this License. Without limiting the
+foregoing, You shall not (and shall not permit any authorized user or third party to): (i) reverse engineer,
+decompile, disassemble, or otherwise attempt to discern the source code, object code, underlying structures,
+algorithms, ideas, know-how or any other information of or related to the Services; (ii) modify, translate,
+adapt or create derivative works based on the Software or Documentation; (iii) make any copies of the
+Software or Documentation; (iv) resell, distribute, or sublicense the Software or Documentation; (v) make
+the Software available on a timesharing or "service bureau" basis, or otherwise allow any third party to use
+or access the Software or Documentation; (vi) remove or modify any proprietary marking or restrictive
+legends placed on the Software or Documentation; or (vii) use the Software in violation of applicable law.
+In addition, you shall not transfer or assign this agreement to any third party.
+
+3. Ownership of Intellectual Property
+With the exception of any open-source and/or other licensed-in components contained or incorporated therein,
+Red Canary is and shall remain the sole and exclusive owner of all right, title, and interest in and to the
+Software and Documentation, including all source code, object code, operating instructions, and all
+interfaces developed for or relating to the same, together with all modifications, enhancements, revisions,
+changes, copies, partial copies, translations, compilations, improvements, and derivative works thereof,
+including all intellectual property rights therein. If you or any of your employees or contractors
+communicates suggestions or recommendations regarding the Software or Documentation, including without
+limitation, new features or functionality relating thereto, or any comments, questions, suggestions, or the
+like ("Feedback"), Red Canary is free to use such Feedback irrespective of any other obligation or
+limitation between you and Red Canary governing such Feedback.
+
+4. Warranty Disclaimer
+RED CANARY WILL NOT PROVIDE YOU WITH ANY MAINTENANCE, SUPPORT, OR PROFESSIONAL SERVICES RELATED TO YOUR
+INSTALLATION OR USE OF THE SOFTWARE OR DOCUMENTATION. THE SOFTWARE, DOCUMENTATION, AND ALL OTHER MATERIALS
+PROVIDED HEREUNDER ARE PROVIDED "AS IS" AND "AS AVAILABLE." RED CANARY MAKES NO WARRANTY WITH RESPECT TO THE
+SOFTWARE, THE DOCUMENTATION, OR OTHERWISE IN CONNECTION WITH THIS LICENSE AND HEREBY DISCLAIMS ANY AND ALL
+EXPRESS, IMPLIED, OR STATUTORY WARRANTIES, INCLUDING, WITHOUT LIMITATION, ANY WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, AVAILABILITY, ERROR-FREE OR UNINTERRUPTED OPERATION, AND ANY WARRANTIES
+ARISING FROM A COURSE OF DEALING, COURSE OF PERFORMANCE, OR USAGE OF TRADE. TO THE EXTENT THAT A PARTY MAY
+NOT AS A MATTER OF APPLICABLE LAW DISCLAIM ANY IMPLIED WARRANTY, THE SCOPE AND DURATION OF SUCH WARRANTY
+WILL BE THE MINIMUM PERMITTED UNDER SUCH LAW.
+
+5. Limitation of Liability
+RED CANARY WILL NOT BE LIABLE TO YOU (NOR TO ANY PERSON CLAIMING RIGHTS DERIVED FROM YOUR RIGHTS) FOR
+CONSEQUENTIAL, INCIDENTAL, INDIRECT, PUNITIVE, OR EXEMPLARY DAMAGES OF ANY KIND (INCLUDING WITHOUT
+LIMITATION LOST REVENUES OR PROFITS, OR LOSS OF GOODWILL OR REPUTATION) ARISING OUT OF OR RELATING TO THE
+SOFTWARE, THE DOCUMENTATION, OR OTHERWISE ARISING OUT OF OR RELATING TO THIS LICENSE, REGARDLESS OF WHETHER
+THE PARTY LIABLE OR ALLEGEDLY LIABLE WAS ADVISED, HAD OTHER REASON TO KNOW, OR IN FACT KNEW OF THE
+POSSIBILITY THEREOF. IN NO EVENT WILL RED CANARY'S AGGREGATE LIABILITY UNDER THIS LICENSE EXCEED ONE HUNDRED
+U.S. DOLLARS ($100). BECAUSE SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OR LIMITATION OF LIABILITY FOR
+NEGLIGENCE, CONSEQUENTIAL, INCIDENTAL OR OTHER DAMAGES, IN SUCH JURISDICTIONS RED CANARY'S LIABILITY IS
+LIMITED TO THE GREATEST EXTENT PERMITTED BY APPLICABLE LAW.
+
+6. Governing Law
+This Agreement shall be governed and construed in accordance with the laws of the State of Colorado without
+regard to the application of conflict of laws principles. The United Nations Convention on Contracts for the
+International Sale of Goods shall not apply. The exclusive venue for any dispute relating to or arising out
+of this Agreement, including without limitation its construction, effect, the performance, breach,
+rescission or termination, shall be in the federal or state courts for Denver, Colorado, and the parties
+consent to personal jurisdiction in such courts.
+
+7. Severability
+No failure or delay by either party in exercising any right under this Agreement shall constitute a waiver
+of that right. If a court of competent jurisdiction holds any provision of this Agreement invalid or
+unenforceable the remaining provisions of will remain in full force and effect, and the provision affected
+will be construed so as to be enforceable to the maximum extent permissible by law. The headings of this
+Agreement are for convenience only. In case of any difficulty in the interpretation of one or more of the
+headings, the headings shall have no meaning and no effect.
+
+8. Complete Understanding
+This Agreement shall be the entire agreement between the parties and supersedes all prior or present
+proposals, representations, undertakings, agreements or warranties, expressed or implied, written or oral,
+concerning its subject matter. You agree that in agreeing to this License and in using the Software, you
+have not relied on any promises, warranties, or representations except those expressed in this agreement.
