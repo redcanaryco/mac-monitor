@@ -1,7 +1,7 @@
 # Red Canary Mac Monitor Telemetry Summary
 ## Distribution details
 - Build name: `GoldCardinal`
-- App version: `1.0.1`
+- App versions: `1.0.1` - `1.0.3`
 
 # Overview
 The following is an in-depth look behind the "Red Canary Security Extension" telemetry curtain. While this information is readily viewable to users at any time by exporting telemetry or selecting the "JSON" tab in any "Event Facts" window these report(s) will serve as a "snapshot" of telemetry capabilities over time.
