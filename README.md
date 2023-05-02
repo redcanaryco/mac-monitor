@@ -9,6 +9,7 @@ Red Canary Mac Monitor is an **advanced, stand-alone system monitoring tool tail
 - macOS version: `13.1+` (Ventura)
 
 ## How can I install this thing?
+> **Homebrew?** `brew install --cask red-canary-mac-monitor`
 * Go to the releases section and download the latest installer: https://github.com/redcanaryco/mac-monitor/releases
 * Open the app: `Red Canary Mac Monitor.app`
 * You'll be prompted to "Open System Settings" to "Allow" the System Extension.
@@ -23,11 +24,14 @@ Red Canary Mac Monitor is an **advanced, stand-alone system monitoring tool tail
 
 
 ## Uninstall
+> **Homebrew?** `brew uninstall red-canary-mac-monitor`. When using this option you will likely be prompted to authenticate to remove the System Extension.
 * **From the Finder** delete the app and authenticate to remove the System Extension. You can't do this from the Dock. It's that easy!
 * You can also *just* remove the Security Extension if you want in the app's menu bar or by going into the app settings.
+* (`1.0.3`) Supports removal using the `../Contents/SharedSupport/uninstall.sh` script.
 
 
 ## How are updates handled?
+> **Homebrew?** `brew update && brew upgrade red-canary-mac-monitor`. When using this option you will likely be prompted to authenticate to remove the System Extension.
 * When a new version is available for you to download we'll make a new [release](https://github.com/redcanaryco/mac-monitor/releases/).
 * We'll include updated notes and telemetry summaries (if applicable) for each release.
 * All you, as the end user, will need to do is download the update and run the installer. We'll take care of the rest 😉.
@@ -39,6 +43,7 @@ Here we'll be hosting:
 * Telemetry reports in `Telemetry reports/` (i.e. all the artifacts that can be collected by the Security Extension).
 * Iconography (what the symbols and colors mean) in `Iconography/`
 * Updated mute set summaries in `Mute sets/`
+* `AtomicESClient` is a seperate, but very closely related project showing the ropes of Endpoint Security check it out in: `AtomicESClient/`
 
 Additionally, you can submit feature requests and bug reports here as well. When creating a new Issue you'll be able to use one of the two provided templates. Both of these options are also accessible from the in-app "Help" menu.
 * [Feature request](https://github.com/redcanaryco/mac-monitor/issues/new?assignees=Brandon7CC&labels=rc-mac-feature-request&template=feature_request.md&title=)
