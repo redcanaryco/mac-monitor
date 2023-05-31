@@ -1,7 +1,7 @@
 # Red Canary Mac Monitor Telemetry Summary
 ## Distribution details
 - Build name: `GoldCardinal`
-- App versions: `1.0.4`
+- App versions: `1.0.1` - `1.0.3`
 
 # Overview
 The following is an in-depth look behind the "Red Canary Security Extension" telemetry curtain. While this information is readily viewable to users at any time by exporting telemetry or selecting the "JSON" tab in any "Event Facts" window these report(s) will serve as a "snapshot" of telemetry capabilities over time.
@@ -36,8 +36,7 @@ Each event has a process which was responsible for it. In terms of process execu
   "responsible_audit_token" : "502-502-20-502-20-12327-100019-1883731",
   "initiating_is_platform_binary" : false,
   "parent_audit_token" : "502-502-20-502-20-13018-100019-1885461",
-  "context" : "AppleScript",
-  "target_path" : "/System/Library/Components/AppleScript.component/Contents/MacOS/AppleScript",
+  "target" : "AppleScript",
   "initiating_process_cdhash" : "bb836a032af6a389f1a086803202fce60dd9f1b2",
   "initiating_process_file_quarantine_type" : 0,
   "macOS" : "13.2.1 (Build 22D68)",
@@ -109,8 +108,6 @@ Each component of our initiating process structure is listed below along with it
 - `initiating_ruid_human: String`
 - `initiating_euid_human: String`
 - `initiating_process_cdhash: String`
-- `context: String?`
-- `target_path: String?`
 - `parent_audit_token: String`
 - `path_is_truncated: Bool`
 - `responsible_audit_token: String`
@@ -190,7 +187,6 @@ Each component of our initiating process structure is listed below along with it
     - `2`: The process has been forced into File Quarantine
 - `cs_type: String`
 - `group_id: Int32`
-- `dyld_exec_path: String?`
 
 ## Process fork target event metadata (`fork_event`): `ES_EVENT_TYPE_NOTIFY_FORK`
 - `audit_token: String`

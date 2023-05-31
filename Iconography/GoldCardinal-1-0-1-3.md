@@ -1,7 +1,7 @@
 # **Event Iconography**
 ## **Distribution details**
 - Build name: `GoldCardinal`
-- App versions: `1.0.4`
+- App versions: `1.0.1` - `1.0.3`
 
 ## **Overview**
 Utilizing **[SF Symbols](https://developer.apple.com/sf-symbols/)** we've assigned each ES event a symbol and colors which correspond to facts about any given event. To follow along, please download `SF Symbols`! *This guide will include pictures in the future*.
@@ -26,9 +26,8 @@ Please note. In most cases, we've included "help" / "tooltip" text for each symb
     - If the process is adhoc signed the event will be colored in `orange` with the **event symbol: "xmark.seal"** and a `yellow` "exclamationmark.triangle.fill" symbol proceeding it.
     - If the process is not signed at all it will be colored in `red` with the **event symbol: "xmark.seal"** and a `red` "exclamationmark.triangle.fill" symbol proceeding it.
 
-- **Dynamic Loader**
+- **Dylib injection**
     - If we've observed this target process having `dyld_insert_libraries` in its environment variables we'll prefix the event symbol with a: "bookmark.slash".
-    - Additionally, if the `dyld_exec_path` does not match the `process_path` we'll prefix the event symbol with a: "curlybraces.square".
 
 - **File Quarantine-aware processes**
     - If we've identified that this process is "File Quarantine-aware" then we'll prefix the event symbol with a: "lock.icloud". 
