@@ -1,7 +1,7 @@
 # **Event Iconography**
 ## **Distribution details**
 - Build name: `GoldCardinal`
-- App versions: `1.0.5`
+- App versions: `1.0.4`
 
 ## **Overview**
 Utilizing **[SF Symbols](https://developer.apple.com/sf-symbols/)** we've assigned each ES event a symbol and colors which correspond to facts about any given event. To follow along, please download `SF Symbols`! *This guide will include pictures in the future*.
@@ -172,43 +172,4 @@ Please note. In most cases, we've included "help" / "tooltip" text for each symb
 - **Event symbol: "captions.bubble".**
 
 
-
-## **Open Directory events**
-### `ES_EVENT_TYPE_NOTIFY_OD_CREATE_USER`
-- **Event symbol: "person.fill.badge.plus"** and we'll color this event `orange`
-
-### `ES_EVENT_TYPE_NOTIFY_OD_CREATE_GROUP`
-- **Event symbol: "person.3.fill"** and we'll color this event `orange`
-
-### `ES_EVENT_TYPE_NOTIFY_OD_GROUP_ADD`
-- **Event symbol: "person.3.fill"** and we'll color this event `orange`
-
-### `ES_EVENT_TYPE_NOTIFY_OD_ATTRIBUTE_VALUE_ADD`
-- **Event symbol: "text.badge.plus"** and we'll color this event `orange`
-
-### `ES_EVENT_TYPE_NOTIFY_OD_MODIFY_PASSWORD`
-- **Event symbol: "rectangle.and.pencil.and.ellipsis"** and we'll color this event `orange`
-
-
-
-## **Profile / MDM events**
-### `ES_EVENT_TYPE_NOTIFY_PROFILE_ADD`
-- **Event symbol: "magazine".**
-
-
-
-## **Authorization events**
-### `ES_EVENT_TYPE_NOTIFY_AUTHORIZATION_PETITION`
-- **Event symbol: "questionmark.diamond".**
-### `ES_EVENT_TYPE_NOTIFY_AUTHORIZATION_JUDGEMENT`
-- **Event symbol: "arrowshape.right.fill".**
-
-
-
-## **XPC events**
-### `ES_EVENT_TYPE_NOTIFY_XPC_CONNECT`
-- **Event symbol: "magazine".**
-
-
-
-![Event iconography](https://github.com/redcanaryco/mac-monitor/blob/main/Resources/GoldCardinal-1-0-5-event-iconography.png?raw=true)
+![Event iconography](https://github.com/redcanaryco/mac-monitor/blob/main/Resources/GoldCardinal-1-0-1-event-iconography.png?raw=true)

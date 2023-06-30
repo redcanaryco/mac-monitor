@@ -1,11 +1,11 @@
 # Red Canary Mac Monitor Telemetry Summary
 ## Distribution details
 - Build name: `GoldCardinal`
-- App versions: `1.0.5`
+- App versions: `1.0.4`
 
 # Overview
 The following is an in-depth look behind the "Red Canary Security Extension" telemetry curtain. While this information is readily viewable to users at any time by exporting telemetry or selecting the "JSON" tab in any "Event Facts" window these report(s) will serve as a "snapshot" of telemetry capabilities over time.
-- Total Endpoint Security (ES) events collected: `41` on macOS 14 Sonoma and `32` on macOS 13 Ventura. 
+- Total Endpoint Security (ES) events collected: `32`
 - Covering the following telemetry classes (abridged)
   * Process
   * Interprocess
@@ -16,10 +16,6 @@ The following is an in-depth look behind the "Red Canary Security Extension" tel
   * Login
   * Background Task Management (BTM)
   * XProtect
-  * Profiles
-  * Open Directory
-  * XPC
-  * Authorization
 
 ## Telemetry record structure
 Each event is delivered in a record which can be modeled in JSON in the following way: 
@@ -40,7 +36,8 @@ Each event has a process which was responsible for it. In terms of process execu
   "responsible_audit_token" : "502-502-20-502-20-12327-100019-1883731",
   "initiating_is_platform_binary" : false,
   "parent_audit_token" : "502-502-20-502-20-13018-100019-1885461",
-  "target" : "AppleScript",
+  "context" : "AppleScript",
+  "target_path" : "/System/Library/Components/AppleScript.component/Contents/MacOS/AppleScript",
   "initiating_process_cdhash" : "bb836a032af6a389f1a086803202fce60dd9f1b2",
   "initiating_process_file_quarantine_type" : 0,
   "macOS" : "13.2.1 (Build 22D68)",
@@ -97,15 +94,6 @@ The following ES events are supported by the Red Canary Security Extension. User
 - `ES_EVENT_TYPE_NOTIFY_TRACE`
 - `ES_EVENT_TYPE_NOTIFY_GET_TASK`
 - `ES_EVENT_TYPE_NOTIFY_PROC_CHECK`
-- `ES_EVENT_TYPE_NOTIFY_PROFILE_ADD`
-- `ES_EVENT_TYPE_NOTIFY_OD_CREATE_USER`
-- `ES_EVENT_TYPE_NOTIFY_OD_CREATE_GROUP`
-- `ES_EVENT_TYPE_NOTIFY_OD_GROUP_ADD`
-- `ES_EVENT_TYPE_NOTIFY_OD_MODIFY_PASSWORD`
-- `ES_EVENT_TYPE_NOTIFY_OD_ATTRIBUTE_VALUE_ADD`
-- `ES_EVENT_TYPE_NOTIFY_XPC_CONNECT`
-- `ES_EVENT_TYPE_NOTIFY_AUTHORIZATION_PETITION`
-- `ES_EVENT_TYPE_NOTIFY_AUTHORIZATION_JUDGEMENT`
 
 
 # Initiating process metadata
@@ -121,6 +109,8 @@ Each component of our initiating process structure is listed below along with it
 - `initiating_ruid_human: String`
 - `initiating_euid_human: String`
 - `initiating_process_cdhash: String`
+- `context: String?`
+- `target_path: String?`
 - `parent_audit_token: String`
 - `path_is_truncated: Bool`
 - `responsible_audit_token: String`
@@ -166,6 +156,16 @@ Each component of our initiating process structure is listed below along with it
 - `link_event: RCESLinkEvent?`
 - `file_close_event: RCESFileCloseEvent?`
 - `iokit_open_event: RCESIOKitOpenEvent?`
+- `profile_add_event: RCESProfileAddEvent`
+- `od_create_user_event: RCESODCreateUserEvent`
+- `od_modify_password_event: RCESODModifyPasswordEvent`
+- `od_group_add_event: RCESODGroupAddEvent`
+- `od_create_group_event: RCESODCreateGroupEvent`
+- `od_attribute_add_event: RCESODAttributeValueAddEvent`
+- `xpc_connect_event: RCESXPCConnectEvent`
+- `authorization_petition_event: RCESAuthorizationPetitionEvent`
+- `authorization_judgement_event: RCESAuthorizationJudgementEvent`
+
 
 # **Process events**
 ## Process execute target event metadata (`exec_event`): `ES_EVENT_TYPE_NOTIFY_EXEC`
@@ -446,121 +446,4 @@ Each component of our initiating process structure is listed below along with it
 - `user_client_class: String`
 - `user_client_type: Int32`
 
-
-
-# **Open Directory events**
-## Create user target event metadata (`od_create_user_event`): `ES_EVENT_TYPE_NOTIFY_OD_CREATE_USER`
-- `instigator_process_name: String`
-- `instigator_process_path: String`
-- `instigator_process_audit_token: String`
-- `instigator_process_signing_id: String`
-- `user_name: String`
-- `node_name: String`
-- `db_path: String`
-- `error_code: Int32`
-- `error_code_human: String`
-
-## Create group target event metadata (`od_create_group_event`): `ES_EVENT_TYPE_NOTIFY_OD_CREATE_GROUP`
-- `instigator_process_name: String`
-- `instigator_process_path: String`
-- `instigator_process_audit_token: String`
-- `instigator_process_signing_id: String`
-- `group_name: String`
-- `node_name: String`
-- `db_path: String`
-- `error_code: Int32`
-- `error_code_human: String`
-
-## Password modification target event metadata (`od_modify_password_event`): `ES_EVENT_TYPE_NOTIFY_OD_MODIFY_PASSWORD`
-- `instigator_process_name: String`
-- `instigator_process_path: String`
-- `instigator_process_audit_token: String`
-- `instigator_process_signing_id: String`
-- `account_type: String`
-- `account_name: String`
-- `node_name: String`
-- `db_path: String`
-- `error_code: Int32`
-- `error_code_human: String`
-
-## Group add target event metadata (`od_group_add_event`): `ES_EVENT_TYPE_NOTIFY_OD_GROUP_ADD`
-- `instigator_process_name: String`
-- `instigator_process_path: String`
-- `instigator_process_audit_token: String`
-- `instigator_process_signing_id: String`
-- `group_name: String`
-- `member: String`
-- `node_name: String`
-- `error_code: Int32`
-- `db_path: String`
-- `error_code_human: String`
-
-## Attribute value add target event metadata (`od_attribute_add_event`): `ES_EVENT_TYPE_NOTIFY_OD_ATTRIBUTE_VALUE_ADD`
-- `instigator_process_name: String`
-- `instigator_process_path: String`
-- `instigator_process_audit_token: String`
-- `instigator_process_signing_id: String`
-- `error_code: Int32`
-- `record_type: String`
-- `record_name: String`
-- `attribute_name: String`
-- `attribute_value: String`
-- `node_name: String`
-- `db_path: String`
-- `error_code_human: String`
-
-
-
-
-# **Profile / MDM events**
-## Profile added target event metadata (`profile_add_event`): `ES_EVENT_TYPE_NOTIFY_PROFILE_ADD`
-- `instigator_process_name: String`
-- `instigator_process_path: String`
-- `instigator_process_audit_token: String`
-- `instigator_process_signing_id: String`
-- `is_update: Bool`
-- `profile_identifier: String`
-- `profile_uuid: String`
-- `profile_organization: String`
-- `profile_display_name: String`
-- `profile_scope: String`
-- `profile_source_type: String`
-
-
-
-
-# **Authorization events**
-## Petition for rights target event metadata (`authorization_petition_event`): `ES_EVENT_TYPE_NOTIFY_AUTHORIZATION_PETITION`
-- `instigator_process_name: String`
-- `instigator_process_path: String`
-- `instigator_process_audit_token: String`
-- `instigator_process_signing_id: String`
-- `petitioner_process_name: String`
-- `petitioner_process_path: String`
-- `petitioner_process_audit_token: String`
-- `petitioner_process_signing_id: String`
-- `flags: String`
-- `right_count: Int32`
-- `rights: String`
-
-## Authorization rights judgement target event metadata (`authorization_judgement_event`): `ES_EVENT_TYPE_NOTIFY_AUTHORIZATION_JUDGEMENT`
-- `instigator_process_name: String`
-- `instigator_process_path: String`
-- `instigator_process_audit_token: String`
-- `instigator_process_signing_id: String`
-- `petitioner_process_name: String`
-- `petitioner_process_path: String`
-- `petitioner_process_audit_token: String`
-- `petitioner_process_signing_id: String`
-- `return_code: Int32`
-- `result_count: Int32`
-- `results: String`
-
-
-
-
-# **XPC events**
-## Connection established to an XPC service target event metadata (`xpc_connect_event`): `ES_EVENT_TYPE_NOTIFY_XPC_CONNECT`
-- `service_name: String`
-- `service_domain_type: String`
 
